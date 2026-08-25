@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>评论批次 Agent</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="hero">
+        <div>
+          <div class="eyebrow">POLYV · LOCAL OUTREACH WORKER</div>
+          <h1>评论批次 Agent</h1>
+          <p>本地运行，无需 GPT 逐条控制。先审核，再按小批次执行。</p>
+        </div>
+        <div class="connection">
+          <span class="pulse"></span>
+          <div>
+            <strong>本地任务台</strong>
+            <small>127.0.0.1 · 不上传 Cookie</small>
+          </div>
+        </div>
+      </header>
+
+      <section class="summary" aria-label="任务摘要">
+        <article>
+          <span>全部线索</span>
+          <strong id="count-total">0</strong>
+        </article>
+        <article>
+          <span>待执行完整</span>
+          <strong id="count-ready">0</strong>
+        </article>
+        <article>
+          <span>已批准</span>
+          <strong id="count-approved">0</strong>
+        </article>
+        <article class="success-card">
+          <span>已完成</span>
+          <strong id="count-completed">0</strong>
+        </article>
+        <article class="warning-card">
+          <span>暂不可执行</span>
+          <strong id="count-blocked">0</strong>
+        </article>
+      </section>
+
+      <section class="panel browser-panel">
+        <div class="section-heading">
+          <div>
+            <h2>1. 启动专用 Chrome</h2>
+            <p>执行评论前先连接本地 9223 端口，并保持打开的 Chrome 窗口不要关闭。</p>
+          </div>
+          <span class="tag browser-offline" id="browser-status">未连接</span>
+        </div>
+        <div class="browser-row">
+          <div class="browser-endpoint">
+            <strong>抖音可见浏览器</strong>
+            <small id="browser-endpoint">http://127.0.0.1:9223</small>
+          </div>
+          <button class="primary" id="start-browser-button">运行专用 Chrome</button>
+        </div>
+        <div class="notice browser-notice" id="browser-notice">
+          Chrome 打开后，请确认已经登录抖音；遇到短信认证时先在浏览器中人工完成。
+        </div>
+      </section>
+
+      <section class="panel import-panel">
+        <div class="section-heading">
+          <div>
+            <h2>2. 导入筛选表</h2>
+            <p id="source-meta">等待读取本地 Excel</p>
+          </div>
+          <span class="tag" id="run-state">空闲</span>
+        </div>
+        <div class="import-row">
+          <button class="ghost" id="select-file-button">选择文件</button>
+          <input
+            id="source-file"
+            type="file"
+            accept=".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            hidden
+          />
+          <input
+            id="source-path"
+            type="text"
+            spellcheck="false"
+            placeholder="请选择本地筛选表.xlsx"
+          />
+          <button class="secondary" id="import-button">读取名单</button>
+        </div>
+        <div class="notice">
+          自动识别昵称、评论 ID、评论原文、视频链接、需求分类和公开回复；重复评论只保留一条。
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading table-heading">
+          <div>
+            <h2>3. 审核本批话术</h2>
+            <p>修改话术后会自动撤销该条审批；已发布记录锁定，不会重复执行。</p>
+          </div>
+          <div class="batch-settings">
+            <label for="sort-mode">触达顺序</label>
+            <select id="sort-mode">
+              <option value="source">按导入顺序</option>
+              <option value="newest">按时间：最新优先</option>
+              <option value="oldest">按时间：最早优先</option>
+            </select>
+            <button class="ghost compact-button" id="sort-button">应用排序</button>
+            <label for="batch-limit">单批数量</label>
+            <select id="batch-limit">
+              <option value="5">5 条</option>
+              <option value="10">10 条</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th class="select-cell">
+                  <input type="checkbox" id="select-all" aria-label="全选" />
+                </th>
+                <th>触达顺序 / 用户</th>
+                <th>评论与需求</th>
+                <th>公开回复</th>
+                <th>完整性</th>
+                <th>状态</th>
+              </tr>
+            </thead>
+            <tbody id="task-body"></tbody>
+          </table>
+        </div>
+
+        <div class="action-bar">
+          <div class="approval-check">
+            <input id="approval-check" type="checkbox" />
+            <label for="approval-check">我已人工审核本批话术</label>
+          </div>
+          <div class="actions">
+            <button class="ghost" id="select-five-button">选择前5条</button>
+            <button class="ghost" id="select-ten-button">选择前10条</button>
+            <button class="ghost" id="refresh-status-button">刷新状态</button>
+            <button class="ghost" id="simulate-button">模拟检查</button>
+            <button class="secondary" id="approve-button">批准所选</button>
+            <button class="primary" id="execute-button">执行已批准批次</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel log-panel">
+        <div class="section-heading">
+          <div>
+            <h2>4. 执行记录</h2>
+            <p>单条失败会跳过并继续；验证码、账号风控或专用 Chrome 断开时整批停止。</p>
+          </div>
+        </div>
+        <div id="log-list" class="log-list"></div>
+      </section>
+    </main>
+
+    <div id="toast" class="toast" role="status"></div>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

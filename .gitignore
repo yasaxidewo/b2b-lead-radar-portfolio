@@ -1,0 +1,42 @@
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+node_modules/
+
+# Runtime identity and browser data
+browser_data/
+runtime/
+*profile*/
+Cookies
+Login Data
+Local Storage/
+
+# Real lead/customer data
+data/
+outputs/
+imports/
+*.db
+*.sqlite
+*.sqlite3
+*.xlsx
+*.xls
+*.jsonl
+*.log
+
+# Keep only the deliberately fictional CSV example
+*.csv
+!demo-data/sample_leads.csv
+
+# Build and editor files
+dist/
+build/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.idea/
+.vscode/
+.DS_Store
+

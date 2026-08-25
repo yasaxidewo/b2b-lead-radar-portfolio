@@ -1,0 +1,5 @@
+platform,comment_id,parent_comment_id,content_id,nickname,comment_text,source_type,target_industry,result_pool,review_status
+douyin,demo_comment_001,,demo_video_001,示例用户A,我们公司想做一场合规的金融培训直播,industry_demand,finance,manual_review,not_published
+xhs,demo_comment_002,demo_parent_001,demo_note_001,示例用户B,现在的平台直播不稳定想了解替代方案,general_selection,,contactable,not_published
+douyin,demo_comment_003,,demo_video_002,示例用户C,医疗会议直播需要权限和回放管理,industry_demand,healthcare,competitive_intelligence,not_published
+

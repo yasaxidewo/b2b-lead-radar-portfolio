@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>抖音评论单条助手</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main>
+      <h1>评论单条助手</h1>
+      <p class="hint">只处理当前一条，不读取 Cookie，不自动批量发布。</p>
+
+      <label>
+        视频链接
+        <input id="videoUrl" type="url" placeholder="https://www.douyin.com/video/...">
+      </label>
+      <button id="openVideo" class="secondary">打开视频</button>
+
+      <label>
+        评论 ID（推荐）
+        <input id="commentId" inputmode="numeric" placeholder="例如：平台评论ID">
+      </label>
+      <label>
+        用户昵称
+        <input id="nickname" type="text" placeholder="用于交叉核对">
+      </label>
+      <label>
+        评论原文
+        <textarea id="commentText" rows="3" placeholder="用于交叉核对；含表情时优先填写评论 ID"></textarea>
+      </label>
+      <button id="locate">1. 定位并高亮</button>
+      <button id="likeAndReply">2. 点赞并打开回复框</button>
+
+      <label>
+        公开回复
+        <textarea id="replyText" rows="5" placeholder="自然问候＋复述具体问题＋一个容易回答的问题"></textarea>
+      </label>
+      <button id="fillReply">3. 复制回复并定位输入框</button>
+
+      <div id="status" role="status" aria-live="polite">等待操作</div>
+      <p class="final-note">第 3 步后关闭助手，在高亮的回复框中按 Ctrl+V。检查对象和话术后，再手动点击发布。出现验证码、频率限制、账号警告或页面异常时立即停止。</p>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

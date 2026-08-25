@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "抖音评论单条助手（人工确认版）",
+  "description": "在已登录的抖音页面中定位一条评论、点赞、打开回复框并填入回复；不会自动批量发布。",
+  "version": "0.2.0",
+  "permissions": [
+    "activeTab",
+    "clipboardWrite",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.douyin.com/*"
+  ],
+  "action": {
+    "default_title": "抖音评论单条助手",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.douyin.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

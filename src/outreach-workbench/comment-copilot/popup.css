@@ -1,0 +1,93 @@
+:root {
+  color-scheme: light;
+  font-family: "Microsoft YaHei", system-ui, sans-serif;
+}
+
+body {
+  width: 360px;
+  margin: 0;
+  color: #1f2329;
+  background: #f7f8fa;
+}
+
+main {
+  padding: 16px;
+}
+
+h1 {
+  margin: 0 0 6px;
+  font-size: 18px;
+}
+
+.hint,
+.final-note {
+  color: #646a73;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+label {
+  display: block;
+  margin-top: 12px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+input,
+textarea {
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 5px;
+  padding: 8px 10px;
+  border: 1px solid #c9cdd4;
+  border-radius: 7px;
+  font: inherit;
+  font-weight: 400;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+  outline: 2px solid rgba(22, 119, 255, 0.2);
+  border-color: #1677ff;
+}
+
+button {
+  width: 100%;
+  margin-top: 9px;
+  padding: 9px 12px;
+  border: 0;
+  border-radius: 7px;
+  color: white;
+  background: #1677ff;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button:hover {
+  background: #0958d9;
+}
+
+button.secondary {
+  color: #1f2329;
+  background: #e5e6eb;
+}
+
+button.secondary:hover {
+  background: #d8dadf;
+}
+
+#status {
+  margin-top: 12px;
+  padding: 9px 10px;
+  border-radius: 7px;
+  color: #245b36;
+  background: #eaf7ee;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+#status.error {
+  color: #8f1d1d;
+  background: #fff0f0;
+}

@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>B2B Social Lead Radar · Portfolio Preview</title>
+  <style>
+    :root {
+      --ink: #0b1f33;
+      --muted: #60748a;
+      --line: #dbe5ee;
+      --paper: #f5f8fb;
+      --card: #ffffff;
+      --cyan: #19c2c9;
+      --blue: #2878ff;
+      --lime: #b8ef62;
+      --orange: #ff9658;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 88% 8%, rgba(25,194,201,.15), transparent 24rem),
+        linear-gradient(180deg, #fbfdff 0, var(--paper) 100%);
+      font-family: Inter, "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+    }
+    .wrap { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+    header { padding: 82px 0 58px; }
+    .eyebrow { color: var(--blue); font-size: 13px; font-weight: 800; letter-spacing: .12em; }
+    h1 { max-width: 900px; margin: 18px 0 22px; font-size: clamp(42px, 7vw, 82px); line-height: .98; letter-spacing: -.045em; }
+    .lead { max-width: 760px; margin: 0; color: var(--muted); font-size: 20px; line-height: 1.75; }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .chip { padding: 8px 12px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.7); font: 700 12px ui-monospace, monospace; }
+    .hero-card { margin-top: 44px; padding: 24px; border-radius: 24px; background: var(--ink); color: white; box-shadow: 0 25px 70px rgba(11,31,51,.17); }
+    .flow { display: grid; grid-template-columns: repeat(9, auto); align-items: center; gap: 10px; overflow-x: auto; padding-bottom: 4px; }
+    .node { min-width: 116px; min-height: 92px; display: grid; place-items: center; padding: 12px; text-align: center; border: 1px solid rgba(255,255,255,.16); border-radius: 16px; background: rgba(255,255,255,.08); font-weight: 750; line-height: 1.45; }
+    .arrow { color: var(--cyan); font-size: 22px; }
+    section { padding: 44px 0; }
+    .section-head { display: grid; grid-template-columns: .8fr 1.2fr; gap: 30px; align-items: end; margin-bottom: 26px; }
+    h2 { margin: 0; font-size: clamp(30px, 3.6vw, 46px); line-height: 1.08; letter-spacing: -.035em; }
+    .section-head p { margin: 0; color: var(--muted); line-height: 1.75; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .card { min-height: 250px; padding: 28px; border: 1px solid var(--line); border-radius: 22px; background: var(--card); box-shadow: 0 10px 30px rgba(50,78,104,.06); }
+    .num { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; background: var(--cyan); font-weight: 900; }
+    .card:nth-child(2) .num { background: var(--lime); }
+    .card h3 { margin: 42px 0 12px; font-size: 26px; }
+    .card p, .card li { color: var(--muted); line-height: 1.75; }
+    .card ul { padding-left: 20px; margin-bottom: 0; }
+    .proof { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .proof div { padding: 20px; border: 1px solid var(--line); border-radius: 16px; background: white; }
+    .proof strong { display: block; margin-bottom: 8px; font-size: 20px; }
+    .proof span { color: var(--muted); font-size: 14px; line-height: 1.55; }
+    .boundary { margin: 44px 0 80px; padding: 28px; border-radius: 22px; background: #fff7f1; border: 1px solid #ffd9c1; }
+    .boundary h3 { margin: 0 0 10px; }
+    .boundary p { margin: 0; color: #79523c; line-height: 1.75; }
+    footer { padding: 34px 0 50px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+    @media (max-width: 760px) {
+      header { padding-top: 54px; }
+      .section-head, .grid { grid-template-columns: 1fr; }
+      .proof { grid-template-columns: 1fr 1fr; }
+      .flow { grid-template-columns: 1fr; }
+      .arrow { transform: rotate(90deg); text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <div class="eyebrow">PORTFOLIO PREVIEW · v3.5.2</div>
+    <h1>B2B Social<br />Lead Radar</h1>
+    <p class="lead">基于开源多平台采集底座完成的业务化二次开发：从公开内容搜索、线索判断和增量去重，走到人工审核触达与销售反馈。</p>
+    <div class="chips">
+      <span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">React</span><span class="chip">SQLite</span><span class="chip">Playwright</span><span class="chip">Human-in-the-loop</span>
+    </div>
+    <div class="hero-card">
+      <div class="flow">
+        <div class="node">搜索策略</div><div class="arrow">→</div>
+        <div class="node">公开内容采集</div><div class="arrow">→</div>
+        <div class="node">相关度与意向</div><div class="arrow">→</div>
+        <div class="node">增量去重</div><div class="arrow">→</div>
+        <div class="node">人工审核触达</div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap">
+      <div class="section-head">
+        <h2>两个核心模块</h2>
+        <p>项目重点不是“多抓数据”，而是把公开信号转成销售可以判断、定位和跟进的结构化线索。</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="num">01</div>
+          <h3>竞品评论线索雷达</h3>
+          <ul>
+            <li>小红书与抖音平台路径</li>
+            <li>竞品、泛需求、行业三类搜索</li>
+            <li>行业专属内容相关度判断</li>
+            <li>评论ID与SQLite增量去重</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="num">02</div>
+          <h3>人工审核触达工作台</h3>
+          <ul>
+            <li>导入名单与定位字段检查</li>
+            <li>草稿编辑、选择与人工批准</li>
+            <li>原评论/公开主页再次核对</li>
+            <li>验证、限频和账号风险即停止</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="section-head">
+        <h2>真实表达，不夸大结果</h2>
+        <p>把工作动作、产品产出、阶段验证和业务结果分开。当前项目证明的是问题拆解与原型落地能力，不虚构成交。</p>
+      </div>
+      <div class="proof">
+        <div><strong>动作</strong><span>调研、日志诊断、搜索规则和代码迭代</span></div>
+        <div><strong>产出</strong><span>线索雷达、增量去重和审核工作台</span></div>
+        <div><strong>阶段验证</strong><span>本地平台路径运行与真实用户回复</span></div>
+        <div><strong>业务结果</strong><span>尚无可归因的合同或收入结论</span></div>
+      </div>
+      <div class="boundary">
+        <h3>公开仓库边界</h3>
+        <p>不包含客户名单、Cookie、Token、浏览器资料、SQLite数据库和执行日志。采集底座明确标注开源来源及原许可证；触达必须人工审核，不绕过平台验证。</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">B2B Social Lead Radar · Portfolio</footer>
+</body>
+</html>
